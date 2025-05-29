@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChirpJS - Beautiful Notifications for JavaScript</title>
+    <meta name="description" content="A modern, lightweight JavaScript notification library that's easy to use and highly customizable.">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/website/main.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="ChirpJS Home">
+                <img src="/website/images/chirpJS_logo.png" alt="ChirpJS Logo" width="24" height="auto">
+                <span>ChirpJS</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#installation">Install</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#examples">Examples</a></li>
+            </ul>
+
+            <a href="https://github.com/joshuaerney/chirp-js" class="github-link" aria-label="View on GitHub">
+                <i data-feather="github"></i>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Beautiful Notifications made Simple</h1>
+            <p class="hero-description">
+                ChirpJS is a modern, lightweight JavaScript notification library that's easy to use,
+                highly customizable, and works everywhere.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">3KB</span>
+                    <span class="stat-label">Gzipped</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Dependencies</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Notification Types</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#installation" class="btn btn-primary">Get Started</a>
+                <a href="#demo" class="btn btn-secondary">See Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Interactive Demo</h2>
+                <p>Try out different notification types and see how they look and feel</p>
+            </div>
+
+            <!-- Notification Types Demo -->
+            <div class="demo-grid">
+                <div class="demo-category">
+                    <h3>Basic Types</h3>
+                    <div class="demo-buttons">
+                        <button class="demo-btn" data-type="success">
+                            <i data-feather="check-circle"></i>
+                            <span>Success</span>
+                        </button>
+                        <button class="demo-btn" data-type="error">
+                            <i data-feather="x-circle"></i>
+                            <span>Error</span>
+                        </button>
+                        <button class="demo-btn" data-type="warning">
+                            <i data-feather="alert-triangle"></i>
+                            <span>Warning</span>
+                        </button>
+                        <button class="demo-btn" data-type="info">
+                            <i data-feather="info"></i>
+                            <span>Info</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="demo-category">
+                    <h3>Advanced Types</h3>
+                    <div class="demo-buttons">
+                        <button class="demo-btn" data-type="loading">
+                            <i data-feather="loader"></i>
+                            <span>Loading</span>
+                        </button>
+                        <button class="demo-btn" data-type="custom">
+                            <i data-feather="heart"></i>
+                            <span>Custom</span>
+                        </button>
+                        <button class="demo-btn" data-type="persistent">
+                            <i data-feather="clock"></i>
+                            <span>Persistent</span>
+                        </button>
+                        <button class="demo-btn" data-type="action">
+                            <i data-feather="zap"></i>
+                            <span>With Action</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position Demo -->
+            <div class="position-demo">
+                <h3>Positioning Options</h3>
+                <div class="position-grid">
+                    <button class="position-btn" data-position="top-left">Top Left</button>
+                    <button class="position-btn" data-position="top-center">Top Center</button>
+                    <button class="position-btn" data-position="top-right">Top Right</button>
+                    <button class="position-btn" data-position="bottom-left">Bottom Left</button>
+                    <button class="position-btn" data-position="bottom-center">Bottom Center</button>
+                    <button class="position-btn" data-position="bottom-right">Bottom Right</button>
+                </div>
+            </div>
+
+            <!-- Bulk Actions -->
+            <div class="bulk-actions">
+                <button class="btn btn-primary" id="show-sequence">
+                    <i data-feather="play"></i>
+                    Show All Types
+                </button>
+                <button class="btn btn-secondary" id="clear-all">
+                    <i data-feather="trash-2"></i>
+                    Clear All
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples Section -->
+    <section id="examples" class="examples-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Code Examples</h2>
+                <p>See how easy it is to integrate ChirpJS into your project</p>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>Basic Usage</h3>
+                    <pre><code class="language-javascript">import { chirp } from 'chirpjs';</code></pre>
+                    <pre><code class="language-javascript">// Simple success notification <br /> chirp.success('Task completed!');</code></pre>
+                    <pre><code class="language-javascript">// With custom message <br /> chirp.error('Something went wrong', { duration: 5000, position: 'top-right' });</code></pre>
+
+                </div>
+
+                <div class="example-card">
+                    <h3>Advanced Options</h3>
+                    <pre><code class="language-javascript">// Loading with progress <br /> const loading = chirp.loading('Processing...');</code></pre>
+                    <pre><code class="language-javascript">// Update progress <br /> loading.progress(50);</code></pre>
+                    <pre><code class="language-javascript">// Complete <br /> loading.success('Done!');</code></pre>
+                </div>
+
+                <div class="example-card">
+                    <h3>Custom Styling</h3>
+                    <pre><code class="language-javascript">chirp.custom('Custom notification', { icon: '🎉', theme: 'dark', className:'my-custom-class', action: { label: 'Undo', handler: () => console.log('Undone!')};});</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose ChirpJS?</h2>
+                <p>Built for modern web development with developer experience in mind</p>
+            </div>
+
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Just 3KB gzipped with zero dependencies. Optimized for performance and minimal bundle impact.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Highly Customizable</h3>
+                    <p>Multiple themes, positions, animations, and custom styling options. Make it yours.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>Responsive design with touch gestures, swipe-to-dismiss, and mobile-optimized interactions.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Modern JavaScript</h3>
+                    <p>ES6+ modules, TypeScript support, and works with React, Vue, Angular, or vanilla JS.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">♿</div>
+                    <h3>Accessibility First</h3>
+                    <p>WCAG compliant with ARIA labels, keyboard navigation, and screen reader support.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Developer Friendly</h3>
+                    <p>Intuitive API, comprehensive docs, TypeScript definitions, and excellent debugging tools.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="installation-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Installation</h2>
+                <p>Get started in seconds with your favorite package manager</p>
+            </div>
+
+            <div class="install-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="npm">npm</button>
+                    <button class="tab-btn" data-tab="yarn">yarn</button>
+                    <button class="tab-btn" data-tab="pnpm">pnpm</button>
+                    <button class="tab-btn" data-tab="cdn">CDN</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel active" data-tab="npm">
+                        <pre><code>npm install chirpjs</code></pre>
+                        <button class="copy-btn" data-copy="npm install chirpjs">
+                            <i data-feather="copy"></i>
+                        </button>
+                    </div>
+                    <div class="tab-panel" data-tab="yarn">
+                        <pre><code>yarn add chirpjs</code></pre>
+                        <button class="copy-btn" data-copy="yarn add chirpjs">
+                            <i data-feather="copy"></i>
+                        </button>
+                    </div>
+                    <div class="tab-panel" data-tab="pnpm">
+                        <pre><code>pnpm add chirpjs</code></pre>
+                        <button class="copy-btn" data-copy="pnpm add chirpjs">
+                            <i data-feather="copy"></i>
+                        </button>
+                    </div>
+                    <div class="tab-panel" data-tab="cdn">
+                        <pre><code>&lt;script src="https://unpkg.com/chirpjs@latest/dist/chirp.min.js"&gt;&lt;/script&gt;</code></pre>
+                        <button class="copy-btn" data-copy='&lt;script src="https://unpkg.com/chirpjs@latest/dist/chirp.min.js"&gt;&lt;/script&gt;'>
+                            <i data-feather="copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-start">
+                <h3>Quick Start</h3>
+                <pre><code class="language-javascript">// Import ChirpJS <br /> import { chirp } from 'chirpjs';</code></pre>
+                <pre><code class="language-javascript">// Show your first notification <br /> chirp.success('Welcome to ChirpJS! 🎉');</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How ChirpJS Compares</h2>
+                <p>See why developers choose ChirpJS over other notification libraries</p>
+            </div>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>ChirpJS</th>
+                            <th>Toastify</th>
+                            <th>SweetAlert2</th>
+                            <th>Notyf</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bundle Size</td>
+                            <td class="highlight">3KB</td>
+                            <td>8KB</td>
+                            <td>47KB</td>
+                            <td>4KB</td>
+                        </tr>
+                        <tr>
+                            <td>Zero Dependencies</td>
+                            <td class="highlight">✅</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>TypeScript</td>
+                            <td class="highlight">✅</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Gestures</td>
+                            <td class="highlight">✅</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Accessibility</td>
+                            <td class="highlight">✅</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="/website/images/chirpJS_logo.png" alt="ChirpJS Logo" width="24" height="24">
+                        <span>ChirpJS</span>
+                    </div>
+                    <p>Beautiful notifications for modern web applications</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Documentation</h4>
+                        <ul>
+                            <li><a href="#getting-started">Getting Started</a></li>
+                            <li><a href="#api-reference">API Reference</a></li>
+                            <li><a href="#examples">Examples</a></li>
+                            <li><a href="#customization">Customization</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="https://github.com/joshuaerney/chirp-js">GitHub</a></li>
+                            <li><a href="https://github.com/joshuaerney/chirp-js/issues">Issues</a></li>
+                            <li><a href="#contributing">Contributing</a></li>
+                            <li><a href="#changelog">Changelog</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#tutorials">Tutorials</a></li>
+                            <li><a href="#showcase">Showcase</a></li>
+                            <li><a href="#support">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ChirpJS. MIT License. Made with ❤️ for the JavaScript community.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i data-feather="mail"></i></a>
+                    <a href="#" aria-label="GitHub"><i data-feather="github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container" aria-live="polite" aria-label="Notifications"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+    </script>
+    <script src="/website/main.js"></script>
+</body>
+
+</html>
